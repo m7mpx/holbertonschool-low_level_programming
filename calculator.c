@@ -21,7 +21,7 @@ int main(void)
 			printf("Bye!\n");
 			break;
 		}
-		else if (choice == 1)
+		else if (choice == 1 || choice == 2)
 		{
 			printf("A: ");
 			if (scanf("%lf", &a) != 1)
@@ -29,7 +29,10 @@ int main(void)
 			printf("B: ");
 			if (scanf("%lf", &b) != 1)
 				break;
-			printf("Result: %g\n", a + b);
+			if (choice == 1)
+				printf("Result: %g\n", a + b);
+			else
+				printf("Result: %g\n", a - b);
 		}
 		else if (choice < 0 || choice > 4)
 		{
