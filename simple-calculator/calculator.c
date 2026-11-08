@@ -1,14 +1,40 @@
 #include <stdio.h>
 
 /**
+ * compute - Reads operands and performs the selected operation
+ * @choice: The operation code (1 to 4)
+ * Return: 0 on success, -1 on input failure
+ */
+int compute(int choice)
+{
+	double a, b;
+
+	printf("A: ");
+	if (scanf("%lf", &a) != 1)
+		return (-1);
+	printf("B: ");
+	if (scanf("%lf", &b) != 1)
+		return (-1);
+	if (choice == 1)
+		printf("Result: %g\n", a + b);
+	else if (choice == 2)
+		printf("Result: %g\n", a - b);
+	else if (choice == 3)
+		printf("Result: %g\n", a * b);
+	else if (b == 0)
+		printf("Error: division by zero\n");
+	else
+		printf("Result: %g\n", a / b);
+	return (0);
+}
+
+/**
  * main - Entry point for the simple calculator program
- *
  * Return: Always 0 (Success)
  */
 int main(void)
 {
 	int choice = -1;
-	double a, b;
 
 	printf("Simple Calculator\n");
 	while (1)
@@ -21,25 +47,13 @@ int main(void)
 			printf("Bye!\n");
 			break;
 		}
-		else if (choice >= 1 && choice <= 3)
+		else if (choice >= 1 && choice <= 4)
 		{
-			printf("A: ");
-			if (scanf("%lf", &a) != 1)
+			if (compute(choice) != 0)
 				break;
-			printf("B: ");
-			if (scanf("%lf", &b) != 1)
-				break;
-			if (choice == 1)
-				printf("Result: %g\n", a + b);
-			else if (choice == 2)
-				printf("Result: %g\n", a - b);
-			else
-				printf("Result: %g\n", a * b);
 		}
-		else if (choice < 0 || choice > 4)
-		{
+		else
 			printf("Invalid choice\n");
-		}
 	}
 	return (0);
 }

@@ -14,7 +14,7 @@ gcc -Wall -Werror -Wextra -pedantic -std=gnu89 calculator.c -o calculator
 0) Quit
 
 ## Numeric Behavior
-Integer operations.
+Supports both integers and decimals using double-precision floating-point.
 
 ## Limitations
-Assumes numeric input.
+Assumes numeric input; division by zero prints an error message.
